@@ -7,6 +7,7 @@ Created on Sun Aug 19 20:33:35 2018
 #Import dependencies
 import os
 import csv
+import sys
 
 # Create path variable
 election_csv_path = r"C:\Users\vivek\Desktop\RutgersDSBootcamp\python-challenge\Vote-Counting\election_data.csv"
@@ -39,14 +40,24 @@ with open(election_csv_path) as csvfile:
     winner_text="Winner: " + str(max(cand_dict, key=cand_dict.get))
     
 #Print Results
-    Print("Election Results")
-    Print("__________________________")
-    Print(f"Total Votes: {tot_votes}")
-    Print("__________________________")
+    print("Election Results")
+    print("__________________________")
+    print(f"Total Votes: {tot_votes}")
+    print("__________________________")
     for candidate in cand_dict:
         print (candidate + ":" + cand_pct[candidate])
-    Print("__________________________")
+    print("__________________________")
     print (winner_text)
-    Print("__________________________")
+    print("__________________________")
 
-    
+#Print Results to .txt file   
+    sys.stdout=open('output.txt','wt')
+    print("Election Results")
+    print("__________________________")
+    print(f"Total Votes: {tot_votes}")
+    print("__________________________")
+    for candidate in cand_dict:
+        print (candidate + ":" + cand_pct[candidate])
+    print("__________________________")
+    print (winner_text)
+    print("__________________________")
